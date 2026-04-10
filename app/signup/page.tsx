@@ -23,7 +23,7 @@ export default function Signup() {
   email,
   password,
   options: {
-   emailRedirectTo: "http://localhost:3000/home"
+   emailRedirectTo: "https://dailyreportingsite-a86o.vercel.app//home"
   },
 }); 
     if (authError) {
