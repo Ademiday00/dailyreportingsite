@@ -130,7 +130,7 @@ export default function DailyReportPage() {
           placeholder="Technician Name"
           value={form.technicianName}
           onChange={handleChange}
-          className="input input-bordered w-100 text-black border-black border-1 p-2 rounded-lg "
+          className="input input-bordered w-60 text-black border-black border-1 p-2 rounded-lg "
           required
         />
 
@@ -139,7 +139,7 @@ export default function DailyReportPage() {
           placeholder="Site Name"
           value={form.siteName}
           onChange={handleChange}
-          className="input input-bordered w-100 text-black border-black border-1 p-2 rounded-lg "
+          className="input input-bordered w-60 text-black border-black border-1 p-2 rounded-lg "
           required
         />
 
@@ -184,7 +184,7 @@ export default function DailyReportPage() {
           className="file-input file-input-bordered w-full text-black"
         />
 
-        <button type="submit" className="btn btn-primary w-full ">
+        <button type="submit" className="btn btn-primary w-full text-black border-black border-1 p-1 rounded -lg">
           {loading ? "Submitting..." : "Submit Report"}
         </button>
       </form>
