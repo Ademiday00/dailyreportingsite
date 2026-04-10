@@ -36,7 +36,7 @@ export default function ReportsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 font-serif text-black">
+    <div className="min-h-screen bg-gray-50 p-6 font-serif text-black md:text-sm sm:text-sm">
       <h1 className="text-2xl font-bold mb-6">All Reports</h1>
 
       {reports.length === 0 ? (
@@ -48,17 +48,17 @@ export default function ReportsPage() {
               <h2 className="font-bold text-lg">
                 {r.technician_name} - {r.site_name}
               </h2>
-              <p className="text-sm text-gray-500 mb-2">{r.date}</p>
+              <p className="text-sm text-gray-500 mb-2 sm:text-xs">{r.date}</p>
 
-              <p className="text-sm mb-2">
+              <p className="text-sm mb-2 sm:text-xs">
                 <strong>Work:</strong> {r.work_progress}
               </p>
 
-              <p className="text-sm mb-2">
+              <p className="text-sm mb-2 sm:text-xs">
                 <strong>Next Visit:</strong> {r.next_visit}
               </p>
 
-              <p className="text-sm mb-2">
+              <p className="text-sm mb-2 sm:text-xs">
                 <strong>Recommendations:</strong> {r.recommendations}
               </p>
 

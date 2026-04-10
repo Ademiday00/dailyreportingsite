@@ -29,28 +29,28 @@ export default function Navbar() {
             
             <Link
               href="/"
-              className="font-serif text-xs lg:text-sm font-bold px-3 py-2 rounded-lg bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"
+              className="font-serif sm:text-xs md:text-xs lg:text-sm font-bold px-3 py-2 rounded-lg bg-radial-[at_25%_25%] from-white to-zinc-900 to-75%"
             >
               Home
             </Link>
 
-            <Link href="/about" className="font-serif text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
+            <Link href="/about" className="font-serif sm:text-xs md:text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
               About
             </Link>
 
-            <Link href="/features" className="font-serif text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
+            <Link href="/features" className="font-serif sm:text-xs md:text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
               Features
             </Link>
 
-            <Link href="/how-it-works" className="font-serif text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
+            <Link href="/how-it-works" className="font-serif sm:text-xs md:text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
               How it works
             </Link>
 
-            <Link href="/login" className="font-serif text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
+            <Link href="/login" className="font-serif sm:text-xs md:text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
               Login
             </Link>
 
-            <Link href="/signup" className="font-serif text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
+            <Link href="/signup" className="font-serif sm:text-xs md:text-xs lg:text-sm font-bold px-3 py-2 rounded-lg border">
               Signup
             </Link>
           </div>

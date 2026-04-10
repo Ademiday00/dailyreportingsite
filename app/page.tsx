@@ -21,7 +21,7 @@ export default function Home() {
 
   <div className="inset-0 flex flex-col items-center justify-center text-center px-4 mt-16 md:mt-24">
    
-  <p className="bg-white/30 backdrop-blur-none text-white font-serif font-bold rounded-lg border border-white px-3 py-3 text-2xl md:text-4xl drop-shadow-lg mt-50">
+  <p className="bg-white/30 backdrop-blur-none text-white font-serif font-bold rounded-lg border border-white px-3 py-3 text-2xl md:text-4xl drop-shadow-lg mt-50 sm:text-xl md:text-xl">
     Daily Reporting System
   </p>
 

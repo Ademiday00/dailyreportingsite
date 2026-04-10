@@ -24,7 +24,7 @@ export default function About() {
               height={20}
               className="object-contain"
             /> 
-            <p className="font-bold text-lg md:text-xl lg:text-2xl mt-1">
+            <p className="font-bold text-lg md:text-sm lg:text-2xl mt-1">
               Daily Reporting System
             </p>
           </div>
@@ -51,26 +51,26 @@ export default function About() {
           
           <div className="flex flex-col gap-3">
             <h2 className="font-bold text-lg md:text-xl">Quick Links</h2>
-            <Link href="/"><p className="hover:text-teal-400 cursor-pointer text-xs">Home</p></Link>
-            <Link href="/about"><p className="hover:text-teal-400 cursor-pointer text-xs">About</p></Link>
-            <Link href="/how-it-works"><p className="hover:text-teal-400 cursor-pointer text-xs">How it works</p></Link>
-            <Link href="/reports"><p className="hover:text-teal-400 cursor-pointer text-xs">Reports</p></Link>
+            <Link href="/"><p className="hover:text-teal-400 cursor-pointer text-sm">Home</p></Link>
+            <Link href="/about"><p className="hover:text-teal-400 cursor-pointer text-sm">About</p></Link>
+            <Link href="/how-it-works"><p className="hover:text-teal-400 cursor-pointer text-sm">How it works</p></Link>
+            <Link href="/reports"><p className="hover:text-teal-400 cursor-pointer text-sm">Reports</p></Link>
           </div>
 
          
           <div className="flex flex-col gap-3">
             <h2 className="font-bold text-lg md:text-xl">Platform</h2>
-            <Link href="/dashboard"><p className="hover:text-teal-400 cursor-pointer text-xs">Dashboard</p></Link>
-            <Link href="/reports"><p className="hover:text-teal-400 cursor-pointer text-xs">View Reports</p></Link>
-            <Link href="/login"><p className="hover:text-teal-400 cursor-pointer text-xs">Get Started</p></Link>
+            <Link href="/dashboard"><p className="hover:text-teal-400 cursor-pointer text-sm sm:text-xs md:text-xs">Dashboard</p></Link>
+            <Link href="/reports"><p className="hover:text-teal-400 cursor-pointer text-sm sm:text-xs md:text-xs">View Reports</p></Link>
+            <Link href="/login"><p className="hover:text-teal-400 cursor-pointer text-sm sm:text-xs md:text-xs">Get Started</p></Link>
           </div>
 
           
           <div className="flex flex-col gap-2">
             <h2 className="font-bold text-lg md:text-xl">Contact</h2>
-            <p className="text-xs ">Address: 26, grace anjous drive lekki phase 1</p>
-            <p className="text-xs ">Email: info@viplift.com</p>
-            <p className="text-xs ">Phone: +234 902 196 0409</p>
+            <p className="text-xs sm:text-xs md:text-xs">Address: 26, grace anjous drive lekki phase 1</p>
+            <p className="text-xs sm:text-xs md:text-xs ">Email: info@viplift.com</p>
+            <p className="text-xs sm:text-xs md:text-xs">Phone: +234 902 196 0409</p>
           </div>
 
         </div>

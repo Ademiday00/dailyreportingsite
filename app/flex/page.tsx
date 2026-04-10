@@ -44,7 +44,7 @@ export default function Flex() {
             className="text-3xl mb-4"
           />
           <p className="mb-2">Media-Based Evidence</p>
-          <p className="font-light text-xs">
+          <p className="font-light text-xs sm:text-xs md:text-xs">
             Supports image and video uploads to validate completed tasks,
             inspections, and fault resolutions, improving transparency and trust.
           </p>
@@ -57,7 +57,7 @@ export default function Flex() {
             className="text-3xl mb-4 transition-transform hover:scale-110"
           />
           <p className="mb-2">Workflow Visibility</p>
-          <p className="font-light text-xs">
+          <p className="font-light text-xs sm:text-xs md:text-xs">
             Supervisors and management can easily review technician activities,
             job progress, and completed tasks without relying on phone calls or
             paper reports.
