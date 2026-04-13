@@ -67,7 +67,7 @@ export default function DashboardPage() {
   ).length;
 
   return (
-    <div className="font-serif min-h-screen bg-gray-50 text-black p-6 md:p-10 sm:text-xs md:text-xs ">
+    <div className="font-sans min-h-screen bg-gray-50 text-black p-6 md:p-10 sm:text-xs md:text-xs ">
       
       <div className="mb-8 flex justify-between items-center">
         <div>

@@ -116,7 +116,7 @@ export default function DailyReportPage() {
   };
 
   return (
-    <div className="min-h-screen bg-gray-100 flex justify-center items-center p-6 sm:text-xs md:text-xs">
+    <div className="font-sans min-h-screen bg-gray-100 flex justify-center items-center p-6 sm:text-xs md:text-xs">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl space-y-4"

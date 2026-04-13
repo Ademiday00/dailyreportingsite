@@ -3,7 +3,7 @@
   export default function Benefit (){
 
 return(
-    <div className="flex sm:text-xs md:text-xs">
+    <div className="flex sm:text-xs md:text-xs font-sans">
         <div className="rounded-lg border border-white/10 px-3 py-3  drop-shadow-lg text-black mt-15 font-serif backdrop-blur-none rounded-lg  w-200  ml-3 bg-blue-50">
             <h1 className="text-3xl font-bold ml-4 mb-4">How it Works</h1>
             <div className="ml-4 mb-3">

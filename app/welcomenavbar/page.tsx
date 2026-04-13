@@ -11,7 +11,7 @@ export default function WelcomeNavbar() {
 
   return (
     <>
-      <nav className="flex justify-between items-center   md:my-9">
+      <nav className="flex justify-between items-center font-sans  md:my-9">
         
 
         <div className="text-black hidden md:flex 
@@ -20,7 +20,7 @@ export default function WelcomeNavbar() {
 
   <Link 
     href="" 
-    className="font-serif text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border "
+    className=" text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border "
   >
     Reports
   </Link>
@@ -29,21 +29,21 @@ export default function WelcomeNavbar() {
 
   <Link 
     href="/attendance" 
-    className="font-serif text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border "
+    className=" text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border "
   >
     Attendance
   </Link>
 
   <Link 
     href="/" 
-    className="font-serif text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border "
+    className="text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border "
   >
     Logout
   </Link>
 
   <Link 
     href="" 
-    className="font-serif text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border"
+    className=" text-xs  font-bold p-1.5 sm:p-2 md:p-2 lg:p-3 rounded-lg border"
   >
     Profile
   </Link>

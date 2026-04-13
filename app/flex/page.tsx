@@ -9,14 +9,14 @@ import {
 
 export default function Flex() {
   return (
-    <div className="px-4 md:px-8">
+    <div className="px-4 md:px-8 font-sans">
       
-      <h1 className="mt-20 text-center text-black text-3xl md:text-4xl font-bold font-serif">
+      <h1 className="mt-20 text-center text-black text-3xl md:text-4xl font-bold ">
         Features for Daily Reporting System
       </h1>
 
       
-      <p className="font-serif font-bold text-center max-w-3xl mx-auto my-6 text-blue-800 dark:text-sky-800 text-base md:text-lg">
+      <p className=" font-bold text-center max-w-3xl mx-auto my-6 text-blue-800 dark:text-sky-800 text-base md:text-lg">
         Transform lift operations with real-time technician reporting, automated
         documentation, and complete operational visibility.
       </p>
@@ -25,7 +25,7 @@ export default function Flex() {
       <div className="grid grid-cols-1 sm:grid-cols-3 lg:grid-cols-3 gap-6 justify-items-center text-black ">
         
         
-        <div className="bg-white text-center font-serif font-bold rounded-lg border border-white/10 p-5 drop-shadow-lg max-w-sm">
+        <div className="bg-white text-center  font-bold rounded-lg border border-white/10 p-5 drop-shadow-lg max-w-sm">
           <FontAwesomeIcon
             icon={faFileLines}
             className="text-3xl mb-4 transition-transform hover:scale-110"
@@ -38,7 +38,7 @@ export default function Flex() {
         </div>
 
        
-        <div className="bg-white text-center font-serif font-bold rounded-lg border border-white/10 p-5 drop-shadow-lg max-w-sm">
+        <div className="bg-white text-center  font-bold rounded-lg border border-white/10 p-5 drop-shadow-lg max-w-sm">
           <FontAwesomeIcon
             icon={faCamera}
             className="text-3xl mb-4"
@@ -51,7 +51,7 @@ export default function Flex() {
         </div>
 
       
-        <div className="bg-white text-center font-serif font-bold rounded-lg border border-white/10 p-5 drop-shadow-lg max-w-sm">
+        <div className="bg-white text-center  font-bold rounded-lg border border-white/10 p-5 drop-shadow-lg max-w-sm">
           <FontAwesomeIcon
             icon={faShieldAlt}
             className="text-3xl mb-4 transition-transform hover:scale-110"

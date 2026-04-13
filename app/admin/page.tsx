@@ -47,7 +47,7 @@ export default function AdminDashboard() {
   const allReports = reports.length;
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 text-black font-serif">
+    <div className="min-h-screen bg-gray-50 p-6 text-black font-sans ">
       
       {/* Header */}
       <header className="mb-8">

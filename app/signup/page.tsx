@@ -60,7 +60,7 @@ export default function Signup() {
   };
 
   return (
-    <div className="bg">
+    <div className="bg font-sans">
       <div className="h-screen flex items-center justify-center">
         <div className="p-8 rounded-lg shadow-lg w-full max-w-sm">
 
@@ -69,7 +69,7 @@ export default function Signup() {
           )}
 
           <div className="mb-6">
-            <label className="block font-serif font-bold mb-2">First Name</label>
+            <label className="block  font-bold mb-2">First Name</label>
             <input
               type="text"
               placeholder="Enter your first name"
@@ -80,7 +80,7 @@ export default function Signup() {
           </div>
 
           <div className="mb-6">
-            <label className="block font-serif font-bold mb-2">Last Name</label>
+            <label className="block  font-bold mb-2">Last Name</label>
             <input
               type="text"
               placeholder="Enter your last name"
@@ -91,7 +91,7 @@ export default function Signup() {
           </div>
 
           <div className="mb-6">
-            <label className="block font-serif font-bold mb-2">Email</label>
+            <label className="block  font-bold mb-2">Email</label>
             <input
               type="email"
               placeholder="Enter your email"
@@ -102,7 +102,7 @@ export default function Signup() {
           </div>
 
           <div className="mb-6">
-            <label className="block font-serif font-bold mb-2">Password</label>
+            <label className="block  font-bold mb-2">Password</label>
             <input
               type="password"
               placeholder="Enter your password"
@@ -115,7 +115,7 @@ export default function Signup() {
           <button
             onClick={handleSignup}
             disabled={loading}
-            className="w-full bg-blue-800 text-white font-bold font-serif py-2 rounded hover:bg-blue-700 transition"
+            className="w-full bg-blue-800 text-white font-bold  py-2 rounded hover:bg-blue-700 transition"
           >
             {loading ? "Creating account..." : "Sign Up"}
           </button>

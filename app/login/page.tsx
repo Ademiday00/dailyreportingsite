@@ -30,7 +30,7 @@ export default function Login() {
   };
 
   return (
-    <div className="bg">
+    <div className="bg font-sans">
       <div className="h-screen flex items-center justify-center">
         <div className="p-8 rounded-lg shadow-lg w-full max-w-sm">
           {error && <p className="text-red-600 mb-4">{error}</p>}

@@ -3,10 +3,10 @@ import Image from "next/image";
 
 export default function Lift() {
   return (
-    <div className="flex flex-col lg:flex-row gap-10 lg:gap-20 justify-between px-4 md:px-10 lg:px-20 my-16 sm:text-xs md:text-xs ">
+    <div className="font-sans flex flex-col lg:flex-row gap-10 lg:gap-20 justify-between px-4 md:px-10 lg:px-20 my-16 sm:text-xs md:text-xs ">
       
      
-      <div className="text-black font-serif rounded-lg border border-white/10 p-6 shadow-lg  lg:w-1/2">
+      <div className="text-black rounded-lg border border-white/10 p-6 shadow-lg  lg:w-1/2">
         <h1 className="text-2xl md:text-3xl lg:text-4xl font-bold mb-4">
           Key Benefits
         </h1>

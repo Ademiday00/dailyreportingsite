@@ -36,7 +36,7 @@ export default function ReportsPage() {
   }, []);
 
   return (
-    <div className="min-h-screen bg-gray-50 p-6 font-serif text-black md:text-sm sm:text-sm">
+    <div className="min-h-screen bg-gray-50 p-6 font-sans text-black md:text-sm sm:text-sm">
       <h1 className="text-2xl font-bold mb-6">All Reports</h1>
 
       {reports.length === 0 ? (
