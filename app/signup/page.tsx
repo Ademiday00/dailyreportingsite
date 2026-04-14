@@ -15,48 +15,46 @@ export default function Signup() {
 
   const handleSignup = async () => {
     if (loading) return;
+
     setLoading(true);
     setError(null);
 
-    // 1️⃣ Create user in Supabase Auth
-    const { data: authData, error: authError } = await supabase.auth.signUp({
-  email,
-  password,
-  options: {
-   emailRedirectTo: "https://dailyreportingsite-a86o.vercel.app//home"
-  },
-}); 
-    if (authError) {
-      setError(authError.message);
+    try {
+      // 1️⃣ SIGN UP USER
+      const { data, error: authError } = await supabase.auth.signUp({
+        email,
+        password,
+        options: {
+          emailRedirectTo: "https://dailyreportingsite-a86o.vercel.app/home", // ✅ fixed
+        },
+      });
+
+      if (authError) throw authError;
+
+      const user = data.user;
+
+      if (!user) throw new Error("User creation failed");
+
+      // 2️⃣ INSERT PROFILE (VERY IMPORTANT)
+      const { error: profileError } = await supabase
+        .from("profiles")
+        .insert({
+          id: user.id,
+          first_name: firstName,
+          last_name: lastName,
+          email: email,
+        });
+
+      if (profileError) throw profileError;
+
+      // 3️⃣ REDIRECT
+      router.push("/home");
+
+    } catch (err: any) {
+      setError(err.message || "Something went wrong");
+    } finally {
       setLoading(false);
-      return;
     }
-
-    const user = authData.user;
-    if (!user) {
-      setError("User creation failed");
-      setLoading(false);
-      return;
-    }
-
-    // 2️⃣ Insert profile row (RLS safe)
-    const { error: profileError } = await supabase
-  .from("profiles")
-  .upsert({
-    id: user.id,
-    first_name: firstName,
-    last_name: lastName,
-    email: email,
-  });
-
-    if (profileError) {
-      setError(profileError.message);
-      setLoading(false);
-      return;
-    }
-
-    
-    router.push("/home");
   };
 
   return (
@@ -69,7 +67,7 @@ export default function Signup() {
           )}
 
           <div className="mb-6">
-            <label className="block  font-bold mb-2">First Name</label>
+            <label className="block font-bold mb-2">First Name</label>
             <input
               type="text"
               placeholder="Enter your first name"
@@ -80,7 +78,7 @@ export default function Signup() {
           </div>
 
           <div className="mb-6">
-            <label className="block  font-bold mb-2">Last Name</label>
+            <label className="block font-serif font-bold mb-2">Last Name</label>
             <input
               type="text"
               placeholder="Enter your last name"
@@ -91,7 +89,7 @@ export default function Signup() {
           </div>
 
           <div className="mb-6">
-            <label className="block  font-bold mb-2">Email</label>
+            <label className="block font-serif font-bold mb-2">Email</label>
             <input
               type="email"
               placeholder="Enter your email"
@@ -102,7 +100,7 @@ export default function Signup() {
           </div>
 
           <div className="mb-6">
-            <label className="block  font-bold mb-2">Password</label>
+            <label className="block font-serif font-bold mb-2">Password</label>
             <input
               type="password"
               placeholder="Enter your password"
@@ -115,7 +113,7 @@ export default function Signup() {
           <button
             onClick={handleSignup}
             disabled={loading}
-            className="w-full bg-blue-800 text-white font-bold  py-2 rounded hover:bg-blue-700 transition"
+            className="w-full bg-blue-800 text-white font-bold font-serif py-2 rounded hover:bg-blue-700 transition"
           >
             {loading ? "Creating account..." : "Sign Up"}
           </button>

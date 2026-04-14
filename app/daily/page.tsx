@@ -13,7 +13,8 @@ export default function DailyReportPage() {
     recommendations: "",
   });
 
-  const [files, setFiles] = useState<FileList | null>(null);
+  const [files, setFiles] = useState<File[]>([]);
+  const [previewUrls, setPreviewUrls] = useState<string[]>([]);
   const [loading, setLoading] = useState(false);
 
   const handleChange = (
@@ -25,54 +26,58 @@ export default function DailyReportPage() {
     }));
   };
 
+  // ================= FIXED FILE HANDLER =================
+  const handleFileChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    const selected = e.target.files;
+
+    if (!selected || selected.length === 0) {
+      setFiles([]);
+      setPreviewUrls([]);
+      return;
+    }
+
+    const fileArray = Array.from(selected);
+
+    setFiles(fileArray);
+
+    const urls = fileArray.map((file) => URL.createObjectURL(file));
+
+    setPreviewUrls(urls);
+  };
+
+  // ================= SUBMIT =================
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault();
     setLoading(true);
 
     try {
-      // ✅ GET USER (required for RLS)
       const {
         data: { user },
-        error: userError,
       } = await supabase.auth.getUser();
 
-      if (userError || !user) {
-        alert("You must be logged in");
+      if (!user) {
         setLoading(false);
         return;
       }
 
       const uploadedUrls: string[] = [];
 
-      // =========================
-      // FILE UPLOAD
-      // =========================
-      if (files && files.length > 0) {
-        for (const file of Array.from(files)) {
-          const filePath = `reports/${Date.now()}-${file.name}`;
+      for (const file of files) {
+        const filePath = `reports/${Date.now()}-${file.name}`;
 
-          const { error: uploadError } = await supabase.storage
-            .from("report-files")
-            .upload(filePath, file);
+        const { error } = await supabase.storage
+          .from("report-files")
+          .upload(filePath, file);
 
-          if (uploadError) {
-            console.error(uploadError.message);
-            continue;
-          }
-
+        if (!error) {
           const { data } = supabase.storage
             .from("report-files")
             .getPublicUrl(filePath);
 
-          if (data?.publicUrl) {
-            uploadedUrls.push(data.publicUrl);
-          }
+          if (data?.publicUrl) uploadedUrls.push(data.publicUrl);
         }
       }
 
-      // =========================
-      // INSERT REPORT
-      // =========================
       const { error: insertError } = await supabase.from("reports").insert([
         {
           user_id: user.id,
@@ -88,13 +93,9 @@ export default function DailyReportPage() {
       ]);
 
       if (insertError) {
-        console.error("Insert error:", insertError.message);
-        alert(insertError.message);
         setLoading(false);
         return;
       }
-
-      alert("Report submitted successfully ✅");
 
       // reset form
       setForm({
@@ -106,17 +107,19 @@ export default function DailyReportPage() {
         recommendations: "",
       });
 
-      setFiles(null);
+      setFiles([]);
+      setPreviewUrls([]);
+
+      alert("Report submitted successfully ✅");
     } catch (err) {
-      console.error(err);
-      alert("Something went wrong");
+      console.log(err);
     }
 
     setLoading(false);
   };
 
   return (
-    <div className="font-sans min-h-screen bg-gray-100 flex justify-center items-center p-6 sm:text-xs md:text-xs">
+    <div className="font-sans min-h-screen bg-gray-100 flex justify-center items-center p-6">
       <form
         onSubmit={handleSubmit}
         className="bg-white shadow-xl rounded-2xl p-8 w-full max-w-2xl space-y-4"
@@ -130,8 +133,7 @@ export default function DailyReportPage() {
           placeholder="Technician Name"
           value={form.technicianName}
           onChange={handleChange}
-          className="input input-bordered w-60 text-black border-black border-1 p-2 rounded-lg "
-          required
+          className="input input-bordered w-60 text-black border-black p-2 rounded-lg"
         />
 
         <input
@@ -139,8 +141,7 @@ export default function DailyReportPage() {
           placeholder="Site Name"
           value={form.siteName}
           onChange={handleChange}
-          className="input input-bordered w-60 text-black border-black border-1 p-2 rounded-lg "
-          required
+          className="input input-bordered w-60 text-black border-black p-2 rounded-lg"
         />
 
         <input
@@ -148,8 +149,7 @@ export default function DailyReportPage() {
           name="date"
           value={form.date}
           onChange={handleChange}
-          className="input input-bordered w-60 text-black border-black border-1 p-2 rounded-lg "
-          required
+          className="input input-bordered w-60 text-black border-black p-2 rounded-lg"
         />
 
         <textarea
@@ -157,8 +157,7 @@ export default function DailyReportPage() {
           placeholder="Work Progress"
           value={form.workProgress}
           onChange={handleChange}
-          className="textarea textarea-bordered w-full text-black border-black border-1 p-2 rounded-lg "
-          required
+          className="textarea textarea-bordered w-full text-black border-black p-2 rounded-lg"
         />
 
         <textarea
@@ -166,25 +165,45 @@ export default function DailyReportPage() {
           placeholder="Next Visit"
           value={form.nextVisit}
           onChange={handleChange}
-          className="textarea textarea-bordered w-full text-black border-black border-1 p-2 rounded-lg "
+          className="textarea textarea-bordered w-full text-black border-black p-2 rounded-lg"
         />
 
         <textarea
           name="recommendations"
-          placeholder="Recommendations"
           value={form.recommendations}
           onChange={handleChange}
-          className="textarea textarea-bordered w-full text-black border-black border-1 p-2 rounded-lg "
+          className="textarea textarea-bordered w-full text-black border-black p-2 rounded-lg"
         />
 
+        {/* FILE INPUT */}
         <input
           type="file"
           multiple
-          onChange={(e) => setFiles(e.target.files)}
+          onChange={handleFileChange}
           className="file-input file-input-bordered w-full text-black"
         />
 
-        <button type="submit" className="btn btn-primary w-full text-black border-black border-1 p-1 rounded -lg">
+        {/* ================= PREVIEW (FIXED) ================= */}
+        {previewUrls.length > 0 && (
+          <div className="flex flex-wrap gap-2 mt-2">
+            {previewUrls.map((url, index) => (
+              <div
+                key={index}
+                className="w-16 h-16 border-2 border-black rounded-md overflow-hidden bg-gray-200"
+              >
+                <img
+                  src={url}
+                  className="w-full h-full object-cover"
+                />
+              </div>
+            ))}
+          </div>
+        )}
+
+        <button
+          type="submit"
+          className="btn btn-primary w-full text-black border-black p-1 rounded"
+        >
           {loading ? "Submitting..." : "Submit Report"}
         </button>
       </form>
