@@ -1,50 +1,26 @@
 "use client";
 
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { supabase } from "@/lib/supabaseClient";
-import { useRouter } from "next/navigation";
 
-export default function ResetPassword() {
-  const router = useRouter();
-
-  const [password, setPassword] = useState("");
+export default function ForgotPassword() {
+  const [email, setEmail] = useState("");
   const [message, setMessage] = useState("");
   const [loading, setLoading] = useState(false);
 
-  // 👁️ NEW: toggle password visibility
-  const [showPassword, setShowPassword] = useState(false);
-
-  useEffect(() => {
-    const checkSession = async () => {
-      const { data } = await supabase.auth.getSession();
-
-      if (!data.session) {
-        setMessage("Invalid or expired reset link");
-      }
-    };
-
-    checkSession();
-  }, []);
-
-  const handleUpdate = async () => {
+  const handleReset = async () => {
     setLoading(true);
     setMessage("");
 
-    const { error } = await supabase.auth.updateUser({
-      password,
+    const { error } = await supabase.auth.resetPasswordForEmail(email, {
+      redirectTo: "https://dailyreportingsite-a86o.vercel.app//resetpassword",
     });
 
     if (error) {
       setMessage(error.message);
-      setLoading(false);
-      return;
+    } else {
+      setMessage("Password reset link sent to your email ✅");
     }
-
-    setMessage("Password updated successfully ✅");
-
-    setTimeout(() => {
-      router.push("/login");
-    }, 2000);
 
     setLoading(false);
   };
@@ -52,41 +28,28 @@ export default function ResetPassword() {
   return (
     <div className="h-screen flex items-center justify-center bg-gray-100">
       <div className="bg-white p-6 rounded-lg shadow w-full max-w-sm">
-
         <h2 className="text-xl font-bold mb-4 text-center text-black">
-          Reset Password
+          Forgot Password
         </h2>
 
-        {/* PASSWORD FIELD WITH EYE TOGGLE */}
-        <div className="relative mb-3">
-          <input
-            type={showPassword ? "text" : "password"}
-            placeholder="New password"
-            className="w-full border p-2 pr-10 rounded text-black"
-            value={password}
-            onChange={(e) => setPassword(e.target.value)}
-          />
-
-          {/* 👁️ TOGGLE BUTTON */}
-          <button
-            type="button"
-            onClick={() => setShowPassword(!showPassword)}
-            className="absolute right-2 top-2 text-black"
-          >
-            {showPassword ? "x" : "👁️"}
-          </button>
-        </div>
+        <input
+          type="email"
+          placeholder="Enter your email"
+          className="w-full border p-2 rounded mb-3"
+          value={email}
+          onChange={(e) => setEmail(e.target.value)}
+        />
 
         <button
-          onClick={handleUpdate}
+          onClick={handleReset}
           disabled={loading}
-          className="w-full bg-green-700 text-white py-2 rounded"
+          className="w-full bg-blue-700 text-white py-2 rounded"
         >
-          {loading ? "Updating..." : "Update Password"}
+          {loading ? "Sending..." : "Send Reset Link"}
         </button>
 
         {message && (
-          <p className="text-center text-sm mt-3 text-blue-600">
+          <p className="text-center text-sm mt-3 text-green-600">
             {message}
           </p>
         )}
