@@ -35,7 +35,7 @@ export default function ForgotPassword() {
         <input
           type="email"
           placeholder="Enter your email"
-          className="w-full border p-2 rounded mb-3"
+          className="w-full border p-2 rounded mb-3 text-black"
           value={email}
           onChange={(e) => setEmail(e.target.value)}
         />
