@@ -163,15 +163,16 @@ export default function Login() {
               Sign Up
             </span>
           </p>
-
-        </div>
-        <p
-  className="text-right text-sm text-blue-600 cursor-pointer mb-3"
+<p
+  className="text-sm text-blue-600 cursor-pointer mb-3 text-center font-bold"
   onClick={() => router.push("/forgotpassword")}
 >
   Forgot Password?
 </p>
+        </div>
+        
       </div>
+      
     </div>
   );
 }
