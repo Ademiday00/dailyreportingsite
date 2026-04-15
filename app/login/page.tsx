@@ -165,6 +165,12 @@ export default function Login() {
           </p>
 
         </div>
+        <p
+  className="text-right text-sm text-blue-600 cursor-pointer mb-3"
+  onClick={() => router.push("/forgotpassword")}
+>
+  Forgot Password?
+</p>
       </div>
     </div>
   );

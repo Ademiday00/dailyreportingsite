@@ -247,7 +247,7 @@ export default function Signup() {
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-10 text-gray-600"
             >
-              {showPassword ? "🙈" : "👁️"}
+              {showPassword ? "x" : "👁️"}
             </button>
           </div>
 
