@@ -643,7 +643,7 @@ export default function DailyReportPage() {
           type="file"
           multiple
           onChange={handleFileChange}
-          className="file-input file-input-bordered w-100 text-white border-blue-600 bg-blue-600 p-2 rounded-lg"
+          className="file-input file-input-bordered w-full text-white border-blue-600 bg-blue-600 p-2 rounded-lg"
         />
 
         {/* PREVIEW WITH REMOVE BUTTON */}
