@@ -77,7 +77,7 @@ export default function Navbar() {
           className={`fixed top-0 right-0 h-screen w-64 bg-white z-50 transform transition-transform duration-300
           ${open ? "translate-x-0" : "translate-x-full"}`}
         >
-          <div className="p-6 flex flex-col gap-5 font-serif text-sm font-bold text-black">
+          <div className="p-6 flex flex-col gap-5 font-sans text-sm font-bold text-black">
             
             <button
               className="self-end text-xl"

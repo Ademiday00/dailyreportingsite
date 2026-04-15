@@ -88,10 +88,10 @@ export default function WelcomeNavbar() {
                       className="mb-1"
                     /> 
                   </div>
-          <Link href="" onClick={() => setOpen(false)} className="text-xs">Reports</Link>
-          <Link href="/attendance" onClick={() => setOpen(false)}  className="text-xs">Attendance</Link>
-          <Link href="/" onClick={() => setOpen(false)}  className="text-xs">Logout</Link>
-          <Link href="" onClick={() => setOpen(false)}  className="text-xs">Profile</Link>
+          <Link href="" onClick={() => setOpen(false)} className="text-xs font-sans">Reports</Link>
+          <Link href="/attendance" onClick={() => setOpen(false)}  className="text-xs font-sans">Attendance</Link>
+          <Link href="/" onClick={() => setOpen(false)}  className="text-xs font-sans">Logout</Link>
+          <Link href="" onClick={() => setOpen(false)}  className="text-xs font-sans">Profile</Link>
         </div>
       </div>
     </>
