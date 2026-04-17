@@ -116,6 +116,7 @@ export default function Login() {
           {error && <p className="text-red-600 mb-4">{error}</p>}
 
           {/* EMAIL */}
+          <label className="block font-bold mb-2">Email</label>
           <input
             type="email"
             placeholder="Email"
@@ -125,6 +126,7 @@ export default function Login() {
           />
 
           {/* PASSWORD WITH TOGGLE */}
+           <label className="block font-bold mb-2">Password</label>
           <div className="relative mb-4">
             <input
               type={showPassword ? "text" : "password"} // ✅ TOGGLE
