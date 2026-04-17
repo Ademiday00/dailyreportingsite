@@ -247,7 +247,17 @@ export default function Signup() {
               onClick={() => setShowPassword(!showPassword)}
               className="absolute right-3 top-10 text-gray-600"
             >
-              {showPassword ? "x" : "👁️"}
+             {showPassword ? (
+    // Eye Slash (hidden)
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+      <path d="M2 2l20 20-1.5 1.5-3.2-3.2C15.8 21 14 21.5 12 21.5c-7 0-11-7-11-7 1.5-2.5 3.5-4.5 5.7-5.9L.5 3.5 2 2z"/>
+    </svg>
+  ) : (
+    // Open Eye (visible)
+    <svg width="20" height="20" viewBox="0 0 24 24" fill="white">
+      <path d="M12 5c-7 0-11 7-11 7s4 7 11 7 11-7 11-7-4-7-11-7zm0 12a5 5 0 1 1 0-10 5 5 0 0 1 0 10z"/>
+    </svg>
+  )}
             </button>
           </div>
 
